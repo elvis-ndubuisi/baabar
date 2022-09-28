@@ -1,0 +1,19 @@
+@use "../variables.scss" as v;
+
+.showcase {
+  background-color: v.$clr-main;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .showcase-content {
+    flex: 1;
+    min-height: 60vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
+  }
+}

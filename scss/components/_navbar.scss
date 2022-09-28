@@ -1,0 +1,36 @@
+@use "../variables.scss" as v;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  position: relative;
+  z-index: 10;
+
+  .brand {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    font-weight: v.$fw-bold;
+
+    .blue {
+      color: v.$clr-blue;
+    }
+  }
+
+  .line {
+    flex: 1;
+    height: 1px;
+    background-color: v.$clr-black;
+    margin-inline: 3em;
+    opacity: 0.6;
+  }
+
+  .menu-button {
+    button {
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+  }
+}

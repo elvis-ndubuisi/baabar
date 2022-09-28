@@ -1,0 +1,43 @@
+@use "./variables.scss" as v;
+@use "./utilities.scss";
+@use "./components/navbar.scss";
+@use "./components/showcase.scss";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-family: v.$ff;
+  background-color: v.$clr-white;
+  color: v.$clr-black;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  font-size: 0.9rem;
+  font-weight: v.$fw-regular;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
