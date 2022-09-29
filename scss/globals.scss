@@ -2,6 +2,8 @@
 @use "./utilities.scss";
 @use "./components/navbar.scss";
 @use "./components/showcase.scss";
+@use "./components/menu.scss";
+@use "./components/footer.scss";
 
 * {
   box-sizing: border-box;
@@ -16,16 +18,6 @@ body {
   color: v.$clr-black;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-p {
-  font-size: 0.9rem;
-  font-weight: v.$fw-regular;
-}
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -36,8 +28,23 @@ p {
   }
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  font-size: 0.9rem;
+  font-weight: v.$fw-regular;
+}
+
 button {
   font-family: inherit;
   border: none;
   outline: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }

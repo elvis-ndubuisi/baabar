@@ -1,0 +1,35 @@
+@use "../variables.scss" as v;
+
+.footer {
+  height: 80px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+
+  .wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: v.$fw-bold;
+    }
+
+    ul {
+      display: inline-flex;
+      gap: 1em;
+
+      li {
+        list-style: none;
+      }
+    }
+
+    .socials {
+      display: flex;
+      gap: 1em;
+    }
+  }
+}

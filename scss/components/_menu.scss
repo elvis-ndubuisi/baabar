@@ -1,0 +1,123 @@
+@use "../variables.scss" as v;
+
+.menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -9;
+  height: 100%;
+  width: 100%;
+
+  .menu-secondary-background {
+    background-color: v.$clr-black;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+  }
+  .menu-layer {
+    position: relative;
+    background-color: v.$clr-blue;
+    height: 100%;
+    overflow: hidden;
+
+    .menu-service-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+    }
+
+    .menu-container {
+      position: relative;
+
+      .menu-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        top: 70px;
+
+        nav {
+          flex: 1;
+          display: block;
+          padding-left: 1em;
+
+          li {
+            list-style: none;
+            font-size: 5.5rem;
+            font-weight: v.$fw-bold;
+            text-transform: capitalize;
+            cursor: pointer;
+            height: 120px;
+            overflow: hidden;
+            position: relative;
+
+            a {
+              position: absolute;
+              color: v.$clr-white;
+
+              &:hover,
+              &:focus {
+                color: v.$clr-black;
+              }
+            }
+          }
+        }
+
+        .info {
+          color: v.$clr-white;
+          width: 300px;
+          flex: 0.5;
+
+          h3 {
+            font-size: 1.4rem;
+            margin: 8px auto;
+            text-transform: capitalize;
+          }
+
+          p {
+            margin: 0 auto;
+            font-size: 0.85rem;
+          }
+        }
+
+        .other-projects {
+          position: absolute;
+          bottom: -80px;
+          color: v.$clr-white;
+          margin-top: 16px;
+          font-size: 0.8rem;
+          font-weight: v.$fw-medium;
+          width: 100%;
+
+          span {
+            cursor: pointer;
+            margin: 0 32px;
+            transition: 0.3s ease-in-out;
+            font-weight: v.$fw-regular;
+
+            &:first-child {
+              margin-left: 16px;
+            }
+
+            &:hover,
+            &:focus {
+              background-color: v.$clr-black;
+              padding: 8px 24px;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

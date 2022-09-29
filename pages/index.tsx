@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Footer from "../components/Footer";
 import Showcase from "../components/Showcase";
 
 const Home: NextPage = () => {
@@ -13,7 +14,13 @@ const Home: NextPage = () => {
 
       <main>
         <Showcase />
+
+        {/* <section className="wrapper">
+          <h2>header</h2>
+        </section> */}
       </main>
+
+      <Footer />
     </>
   );
 };
