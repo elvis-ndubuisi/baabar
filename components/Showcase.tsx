@@ -1,27 +1,51 @@
 import Navbar from "./Navbar";
 import { useRef, useEffect } from "react";
 import { gsap, Power3, CSSPlugin } from "gsap";
-import CSSRulePlugin from "gsap/CSSRulePlugin";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 
 const Showcase = () => {
   let showcaseRef = useRef(null) as any;
-  let headingRef = useRef(null) as any;
   let subHeadingRef = useRef(null) as any;
-  let imgRef = useRef(null) as any;
-  let imgAfter = CSSRulePlugin.getRule(".showcase-img::after");
+  let headingRef = useRef(null) as any;
   let headingSiblings = gsap.utils.selector(headingRef);
-  const timeLine = useRef() as any;
+  let imgRef = useRef(null) as any;
+  let revealImg = useRef(null) as any;
+  // const timeLine = useRef() as any;
 
   useEffect(() => {
-    console.log(imgAfter);
-    // timeLine.current = gsap
-    //   .timeline()
-    //   .to(showcaseRef, { duration: 0, css: { visibility: "visible" } })
-    //   .to(imgAfter, {
-    //     duration: 1.3,
-    //     css: { width: "0%" },
-    //     ease: Power3.easeInOut,
-    //   });
+    let imgTween = gsap
+      .timeline()
+      .to(showcaseRef, { duration: 0, css: { visibility: "visible" } })
+      .to(revealImg, {
+        duration: 1.4,
+        delay: 0.5,
+        ease: Power3.easeInOut,
+        css: { height: "0%", width: "0%" },
+      })
+      .from(imgRef, {
+        duration: 1.4,
+        scale: 1.6,
+        ease: Power3.easeInOut,
+        immediateRender: false,
+        delay: -1.4,
+      });
+
+    gsap.to(headingSiblings("h1"), {
+      duration: 0,
+      css: { display: "block" },
+      stagger: 0.4,
+    });
+    let tween = gsap.from(headingSiblings("h1"), {
+      duration: 1,
+      y: 90,
+      ease: Power3.easeInOut,
+      stagger: 0.4,
+      immediateRender: false,
+    });
+    return () => {
+      tween.kill();
+      imgTween.kill();
+    };
   }, []);
 
   return (
@@ -50,8 +74,13 @@ const Showcase = () => {
               <button className="btn">Generate</button>
             </div>
           </section>
-          <div className="showcase-img" ref={(el) => (imgRef = el)}>
-            <img src="/assets/rockstar.svg" alt="rockstar" />
+          <div className="showcase-img">
+            <div className="reveal-img" ref={(el) => (revealImg = el)}></div>
+            <img
+              src="/assets/rockstar.svg"
+              alt="rockstar"
+              ref={(el) => (imgRef = el)}
+            />
           </div>
         </section>
       </section>
