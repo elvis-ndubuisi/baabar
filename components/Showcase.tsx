@@ -35,7 +35,9 @@ const Showcase = () => {
       css: { display: "block" },
       stagger: 0.4,
     });
+
     gsap.to(subHeadingRef, { duration: 0, css: { display: "block" } });
+
     let headingTween = gsap
       .timeline()
       .from(headingSiblings("h1"), {
