@@ -35,15 +35,24 @@ const Showcase = () => {
       css: { display: "block" },
       stagger: 0.4,
     });
-    let tween = gsap.from(headingSiblings("h1"), {
-      duration: 1,
-      y: 90,
-      ease: Power3.easeInOut,
-      stagger: 0.4,
-      immediateRender: false,
-    });
+    gsap.to(subHeadingRef, { duration: 0, css: { display: "block" } });
+    let headingTween = gsap
+      .timeline()
+      .from(headingSiblings("h1"), {
+        duration: 1,
+        y: 90,
+        ease: Power3.easeInOut,
+        stagger: 0.4,
+        immediateRender: false,
+      })
+      .from(subHeadingRef, {
+        duration: 1,
+        x: -100,
+        immediateRender: false,
+        delay: -1.3,
+      });
     return () => {
-      tween.kill();
+      headingTween.kill();
       imgTween.kill();
     };
   }, []);
