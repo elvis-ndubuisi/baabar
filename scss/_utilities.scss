@@ -1,6 +1,8 @@
+@use "./variables.scss" as v;
+
 .wrapper {
-  // max-width: 1440px;
-  max-width: 1280px;
+  max-width: 1440px;
+  // max-width: 1280px;
   margin-inline: auto;
   padding-inline: 1em;
 }
@@ -11,7 +13,7 @@
   font-weight: 500;
   font-size: 1.1rem;
   border-radius: 4px;
-  background-color: white;
-  border: solid 2px black;
-  box-shadow: 3px 4px yellow;
+  background-color: v.$clr-white;
+  border: solid 2px v.$clr-black;
+  box-shadow: 3px 4px v.$clr-darkCyan;
 }

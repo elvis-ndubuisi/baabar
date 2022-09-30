@@ -10,7 +10,7 @@
   width: 100%;
 
   .menu-secondary-background {
-    background-color: v.$clr-black;
+    background-color: v.$clr-darkCyan;
     position: fixed;
     top: 0;
     right: 0;
@@ -20,7 +20,7 @@
   }
   .menu-layer {
     position: relative;
-    background-color: v.$clr-blue;
+    background-color: v.$clr-red;
     height: 100%;
     overflow: hidden;
 

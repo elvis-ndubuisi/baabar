@@ -6,11 +6,34 @@
   place-content: center;
   justify-content: center;
   gap: 1.5em;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  // background-color: red;
+
+  .bottom-right {
+    min-width: 400px;
+    position: absolute;
+    bottom: -40px;
+    right: -30px;
+    z-index: -1;
+    visibility: hidden;
+  }
+
+  .top-left {
+    position: absolute;
+    top: 20px;
+    left: -5%;
+    transform: scaleX(-1);
+    visibility: hidden;
+    z-index: -1;
+  }
 
   h1 {
     text-align: center;
-    font-size: 6rem;
+    font-size: 5rem;
     line-height: 1em;
+    opacity: 0.9;
   }
 
   .link-input {
@@ -25,14 +48,15 @@
       gap: 1em;
       border-radius: 0.4em;
       overflow: hidden;
-      background-color: white;
-      border: solid 1px red;
+      background-color: v.$clr-white;
+      border: solid 1px v.$clr-mstYellow;
 
       &:focus-within {
-        border-color: blue;
+        border-color: v.$clr-darkCyan;
 
         button {
-          background-color: pink;
+          background-color: v.$clr-darkCyan;
+          color: v.$clr-white;
         }
       }
 
@@ -47,7 +71,15 @@
       button {
         align-self: stretch;
         padding: 0 2em;
-        background-color: red;
+        background-color: v.$clr-mstYellow;
+        font-weight: v.$fw-medium;
+        font-size: 1.1rem;
+        opacity: 0.9;
+
+        &:hover,
+        &:focus {
+          opacity: 1;
+        }
       }
     }
   }
@@ -58,9 +90,15 @@
     gap: 1em;
     margin: auto;
     padding: 0.8em;
+    font-weight: v.$fw-medium;
+    opacity: 0;
+    border-radius: 0.4em;
+    background-color: darken(v.$clr-white, 10);
+    min-width: 400px;
 
     p {
       flex: 1;
+      font-weight: inherit;
     }
     i {
       width: 24px;
