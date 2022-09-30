@@ -1,61 +1,51 @@
 import Navbar from "./Navbar";
 import { useRef, useEffect } from "react";
-import { gsap, Power3, CSSPlugin } from "gsap";
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
+import { gsap, Power3, Quad } from "gsap";
+import Link from "next/link";
+import { anim_showcaseImg, anim_headingTween } from "../libraries/animations";
 
 const Showcase = () => {
   let showcaseRef = useRef(null) as any;
   let subHeadingRef = useRef(null) as any;
   let headingRef = useRef(null) as any;
+  let paragRef = useRef(null) as any;
   let headingSiblings = gsap.utils.selector(headingRef);
   let imgRef = useRef(null) as any;
   let revealImg = useRef(null) as any;
-  // const timeLine = useRef() as any;
+  let linkBtns = useRef(null) as any;
+  let linkSiblings = gsap.utils.selector(linkBtns);
 
   useEffect(() => {
-    let imgTween = gsap
-      .timeline()
-      .to(showcaseRef, { duration: 0, css: { visibility: "visible" } })
-      .to(revealImg, {
-        duration: 1.4,
-        delay: 0.5,
-        ease: Power3.easeInOut,
-        css: { height: "0%", width: "0%" },
-      })
-      .from(imgRef, {
-        duration: 1.4,
-        scale: 1.6,
-        ease: Power3.easeInOut,
-        immediateRender: false,
-        delay: -1.4,
-      });
+    let imgTween = anim_showcaseImg(showcaseRef, revealImg, imgRef);
 
     gsap.to(headingSiblings("h1"), {
-      duration: 0,
+      duration: 0.5,
       css: { display: "block" },
       stagger: 0.4,
     });
 
     gsap.to(subHeadingRef, { duration: 0, css: { display: "block" } });
 
-    let headingTween = gsap
-      .timeline()
-      .from(headingSiblings("h1"), {
-        duration: 1,
-        y: 90,
-        ease: Power3.easeInOut,
-        stagger: 0.4,
-        immediateRender: false,
-      })
-      .from(subHeadingRef, {
-        duration: 1,
-        x: -100,
-        immediateRender: false,
-        delay: -1.3,
-      });
+    let headingTween = anim_headingTween(headingSiblings, subHeadingRef);
+
+    gsap.to(linkSiblings("button"), {
+      css: { display: "block" },
+      duration: 0,
+      opacity: 1,
+      stagger: 0.4,
+    });
+
+    let paragTween = gsap.timeline().from(paragRef, {
+      duration: 1,
+      opacity: 0,
+      ease: Quad.easeInOut,
+      immediateRender: false,
+    });
+
     return () => {
       headingTween.kill();
       imgTween.kill();
+      paragTween.kill();
     };
   }, []);
 
@@ -75,14 +65,22 @@ const Showcase = () => {
               </span>
             </div>
 
-            <p>
+            <p ref={(el) => (paragRef = el)}>
               <span>#1</span> Free and fully customizable Barcode - Qr Code
               Generator, URL shortening service and Barcode scanner.
             </p>
 
-            <div>
-              <button className="btn">Generate</button>
-              <button className="btn">Generate</button>
+            <div className="link-buttons" ref={linkBtns}>
+              <button>
+                <Link href="/barcode">
+                  <a className="btn">Generate Code</a>
+                </Link>
+              </button>
+              <button>
+                <Link href="shortener">
+                  <a className="btn">Shorten Link</a>
+                </Link>
+              </button>
             </div>
           </section>
           <div className="showcase-img">

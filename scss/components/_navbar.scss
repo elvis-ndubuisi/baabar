@@ -34,10 +34,11 @@
     button {
       font-size: 1rem;
       padding: 0.5em 1em;
-      border-radius: 5px;
+      border-radius: 8px;
       color: inherit;
       z-index: 2;
       background-color: transparent;
+      text-transform: capitalize;
     }
 
     &::after {
@@ -55,7 +56,7 @@
     &:focus::after {
       width: 100%;
       display: block;
-      background-color: red;
+      background-color: white;
       animation: flow 0.3s forwards ease-in-out;
     }
   }

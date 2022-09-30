@@ -65,3 +65,42 @@ export const anim_linkExit = (target: any) => {
     ease: Power3.easeOut,
   });
 };
+
+export const anim_showcaseImg = (showcase, revealImg, img) => {
+  const tween = gsap
+    .timeline()
+    .to(showcase, { duration: 0, css: { visibility: "visible" } })
+    .to(revealImg, {
+      duration: 1.4,
+      delay: 0.5,
+      ease: Power3.easeInOut,
+      css: { height: "0%", width: "0%" },
+    })
+    .from(img, {
+      duration: 1.4,
+      scale: 1.6,
+      ease: Power3.easeInOut,
+      immediateRender: false,
+      delay: -1.4,
+    });
+
+  return tween;
+};
+
+export const anim_headingTween = (headingSiblings, subHead) => {
+  return gsap
+    .timeline()
+    .from(headingSiblings("h1"), {
+      duration: 1,
+      y: 90,
+      ease: Power3.easeInOut,
+      stagger: 0.4,
+      immediateRender: false,
+    })
+    .from(subHead, {
+      duration: 1,
+      x: -100,
+      immediateRender: false,
+      delay: -1.3,
+    });
+};

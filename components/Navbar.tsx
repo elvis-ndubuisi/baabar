@@ -45,7 +45,7 @@ const Navbar = () => {
       <div className="line"></div>
       <div className="menu-button">
         <button disabled={disableMenu} onClick={handleMenu}>
-          menu
+          {menu.menuText}
         </button>
       </div>
       <Menu state={menu} />

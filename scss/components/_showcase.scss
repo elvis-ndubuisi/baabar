@@ -3,6 +3,7 @@
 .showcase {
   background-color: v.$clr-main;
   visibility: hidden;
+  min-height: 100vh;
 
   .wrapper {
     display: flex;
@@ -12,15 +13,16 @@
 
   .showcase-content {
     flex: 1;
-    min-height: 60vh;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 2em;
 
     .showcase-caption {
-      flex: 1;
       text-align: left;
+      overflow: hidden;
+      padding: 1em;
 
       h4 {
         font-size: 1.8rem;
@@ -33,7 +35,8 @@
         align-items: center;
         justify-content: flex-start;
         gap: 1em;
-        height: 90px;
+        height: 60px;
+        margin: 1.7em 0;
 
         span {
           height: inherit;
@@ -51,18 +54,28 @@
         max-width: 700px;
         font-size: 1.2rem;
         opacity: 0.96;
-        margin-bottom: 1em;
+        margin-bottom: 2em;
 
         span {
           font-weight: v.$fw-bold;
           color: v.$clr-orange;
         }
       }
+
+      div:last-child {
+        display: flex;
+        gap: 2em;
+        flex-wrap: wrap;
+
+        button {
+          display: none;
+        }
+      }
     }
 
     .showcase-img {
-      flex: 0.5;
-      max-width: 500px;
+      width: 100%;
+      max-width: 400px;
       position: relative;
       z-index: 1;
       overflow: hidden;

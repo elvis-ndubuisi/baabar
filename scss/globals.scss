@@ -4,6 +4,7 @@
 @use "./components/showcase.scss";
 @use "./components/menu.scss";
 @use "./components/footer.scss";
+@use "./components/shortener.scss";
 
 * {
   box-sizing: border-box;
@@ -42,9 +43,22 @@ button {
   font-family: inherit;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 img {
   max-width: 100%;
   display: block;
+}
+
+input {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1em;
 }

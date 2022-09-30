@@ -1,0 +1,71 @@
+@use "../variables.scss" as v;
+
+.shorten-landing {
+  min-height: 80vh;
+  display: grid;
+  place-content: center;
+  justify-content: center;
+  gap: 1.5em;
+
+  h1 {
+    text-align: center;
+    font-size: 6rem;
+    line-height: 1em;
+  }
+
+  .link-input {
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1em;
+      border-radius: 0.4em;
+      overflow: hidden;
+      background-color: white;
+      border: solid 1px red;
+
+      &:focus-within {
+        border-color: blue;
+
+        button {
+          background-color: pink;
+        }
+      }
+
+      input {
+        flex: 1;
+        padding: 0.8em;
+        outline: 0;
+        border: solid 2px transparent;
+        background-color: transparent;
+      }
+
+      button {
+        align-self: stretch;
+        padding: 0 2em;
+        background-color: red;
+      }
+    }
+  }
+
+  .url {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin: auto;
+    padding: 0.8em;
+
+    p {
+      flex: 1;
+    }
+    i {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+  }
+}
