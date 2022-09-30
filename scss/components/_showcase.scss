@@ -1,7 +1,7 @@
 @use "../variables.scss" as v;
 
 .showcase {
-  background-color: v.$clr-main;
+  background-color: lighten(v.$clr-mstYellow, 9);
   visibility: hidden;
   min-height: 70vh;
 

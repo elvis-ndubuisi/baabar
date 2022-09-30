@@ -1,0 +1,6 @@
+@use "../variables.scss" as v;
+
+.code-landing {
+  background-color: v.$clr-black;
+  min-height: 80vh;
+}

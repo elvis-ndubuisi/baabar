@@ -1,8 +1,9 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useEffect, useRef, useState } from "react";
-import { gsap, Power3, Bounce, Elastic } from "gsap";
+import { gsap, Power3, Elastic } from "gsap";
 import { AiOutlineCopy } from "react-icons/ai";
+import Link from "next/link";
 
 const Shortener = () => {
   let linkField = useRef() as any;
@@ -10,6 +11,7 @@ const Shortener = () => {
   let inputGroup = useRef(null) as any;
   let urlRef = useRef(null) as any;
   let imgleft = useRef(null) as any;
+  let imgRight = useRef(null) as any;
   let imgTop = useRef(null) as any;
 
   const [url, setUrl] = useState("Generated Url here..");
@@ -17,9 +19,6 @@ const Shortener = () => {
   const handleSubmit = () => {};
 
   useEffect(() => {
-    linkField.current.focus();
-    gsap;
-
     let tween = gsap
       .timeline()
       .from(heading, {
@@ -35,19 +34,36 @@ const Shortener = () => {
         y: 100,
         immediateRender: false,
       })
-      .to(urlRef, { duration: 0.5, opacity: 1 })
-      .from(imgTop, {
+      .to(urlRef, { duration: 0.5, opacity: 1 });
+
+    // gsap.to(imgleft, { duration: 0, css: { display: "block" } });
+    // gsap.to(imgRight, { duration: 0, css: { display: "block" } });
+    let imgTween = gsap
+      .timeline()
+      .from(imgRight, {
         duration: 1,
         ease: Elastic.easeInOut,
         x: 500,
         immediateRender: false,
       })
-      .to(imgTop, { duration: 0, css: { visibility: "visible" } });
-
-    gsap.to(imgleft, { duration: 0, css: { visibility: "visible" } });
+      .from(imgleft, {
+        duration: 1,
+        ease: Elastic.easeInOut,
+        y: 200,
+        delay: -1,
+        immediateRender: false,
+      })
+      .from(imgTop, {
+        duration: 0.8,
+        immediateRender: false,
+        ease: Power3.easeInOut,
+        scale: 0,
+        delay: -1,
+      });
 
     return () => {
       tween.kill();
+      imgTween.kill();
     };
   }, []);
 
@@ -57,21 +73,28 @@ const Shortener = () => {
         <Navbar />
         <section className="shorten-landing">
           <img
-            ref={(el) => (imgTop = el)}
+            ref={(el) => (imgRight = el)}
             className="bottom-right"
             src="./assets/casual-life-3d-spotted-blue-succulent-plant.png"
             alt="casual-life-3d-spotted-blue-succulent-plant"
           />
           <img
-            className="top-left"
+            className="bottom-left"
             ref={(el) => (imgleft = el)}
-            src="./assets/casual-life-3d-white-robot.png"
-            alt="casual-life-3d-white-robot"
+            src="./assets/casual-life-3d-spotted-blue-succulent-in-white-pot.png"
+            alt="casual-life-3d-spotted-blue-succulent-in-white-pot"
+          />
+          <img
+            ref={(el) => (imgTop = el)}
+            className="top"
+            src="./assets/3d-casual-life-lines-heart-1.png"
+            alt="3d-casual-life-lines-heart-1"
           />
           <h1 ref={(el) => (heading = el)}>Shorter Links, Better Experience</h1>
+          <h2>Easier way to share links.</h2>
           <form className="link-input" onSubmit={handleSubmit}>
             <div ref={(el) => (inputGroup = el)}>
-              <input type="text" ref={linkField} placeholder="Enter link" />
+              <input type="text" placeholder="Enter link" />
               <button>Generate</button>
             </div>
           </form>
@@ -80,6 +103,9 @@ const Shortener = () => {
             <i>
               <AiOutlineCopy size={24} />
             </i>
+          </div>
+          <div className="misc">
+            <Link href="qrcode">Generate QR Code ?</Link>
           </div>
         </section>
       </section>
