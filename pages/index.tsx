@@ -15,9 +15,54 @@ const Home: NextPage = () => {
       <main>
         <Showcase />
 
-        {/* <section className="wrapper">
-          <h2>header</h2>
-        </section> */}
+        <section className="about">
+          <h2>Free tools for easy branding and more</h2>
+          <section className="wrapper">
+            <div className="content">
+              <div className="image">
+                <img src="./assets/www-pana.svg" alt="link shortner" />
+              </div>
+              <aside>
+                <h4>Simple and fast URL shortener!</h4>
+                <p>
+                  Baabar transforms long, ugly looking links from top sites on
+                  the internet into nice, memorable, short URLs. just paste the
+                  long URL and with the click of a button, your short URL is
+                  generated.
+                </p>
+                <p>
+                  Your shortened URLs can be used in publications, documents,
+                  advertisements, blogs, forums, instant messages, and other
+                  locations.
+                </p>
+
+                <button>Shorten Url</button>
+              </aside>
+            </div>
+
+            <div className="content">
+              <aside>
+                <h4>Full customizable QR code</h4>
+                <p>
+                  Add editable and trackable QR Codes on anything you want with
+                  full branding and customization feature
+                </p>
+                <p>
+                  A QR code is a two dimensional barcode that stores information
+                  in black and white dots (called data pixels or “QR code
+                  modules”). Besides the black and white version, you can also
+                  create a colored QR code. For these codes to work without
+                  problems, make sure the contrast is sufficient and the result
+                  is not a negative (in terms of color). To make your QR code
+                  even better, you can also get a QR code with logo.
+                </p>
+              </aside>
+              <div className="image">
+                <img src="./assets/QR Code-pana.svg" alt="qr code" />
+              </div>
+            </div>
+          </section>
+        </section>
       </main>
 
       <Footer />

@@ -127,3 +127,22 @@
     }
   }
 }
+
+.shorten-caption {
+  padding: 1.2em 0;
+
+  h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 1em 0;
+    text-transform: capitalize;
+  }
+
+  p {
+    max-width: 800px;
+    text-align: center;
+    margin: auto;
+    font-size: 1.2rem;
+    font-weight: v.$fw-medium;
+  }
+}

@@ -90,7 +90,7 @@ const Shortener = () => {
             src="./assets/3d-casual-life-lines-heart-1.png"
             alt="3d-casual-life-lines-heart-1"
           />
-          <h1 ref={(el) => (heading = el)}>Shorter Links, Better Experience</h1>
+          <h1 ref={(el) => (heading = el)}>Shorten, Share, So Easy</h1>
           <h2>Easier way to share links.</h2>
           <form className="link-input" onSubmit={handleSubmit}>
             <div ref={(el) => (inputGroup = el)}>
@@ -107,6 +107,15 @@ const Shortener = () => {
           <div className="misc">
             <Link href="qrcode">Generate QR Code ?</Link>
           </div>
+        </section>
+
+        <section className=" shorten-caption wrapper">
+          <h2>Shorten URLs or Brand Links</h2>
+          <p>
+            Free custom URL Shortener with many features that gives you better
+            quality for links shortening. Shortened URLs will never expire. We
+            do not display ads during direct redirecting to the original url.
+          </p>
         </section>
       </section>
       <Footer />

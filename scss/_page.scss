@@ -1,0 +1,52 @@
+@use "./variables.scss" as v;
+
+.about {
+  padding: 1em 0;
+  // background-color: v.$clr-black;
+  background-color: lighten(v.$clr-black, 10);
+  color: v.$clr-white;
+
+  h2 {
+    text-align: center;
+    font-size: 2.3rem;
+    margin: 1.2em 0;
+    text-transform: capitalize;
+  }
+
+  .wrapper {
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: 1em;
+
+      & > * {
+        flex: 1;
+
+        h4 {
+          font-size: 2rem;
+          margin-bottom: 0.5em;
+          text-decoration: underline;
+        }
+
+        p {
+          line-height: 1.5em;
+          margin: 0.6em 0;
+        }
+      }
+      .image {
+        height: 400px;
+        max-height: 450px;
+        display: grid;
+        place-content: center;
+
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
