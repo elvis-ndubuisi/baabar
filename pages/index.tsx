@@ -56,6 +56,10 @@ const Home: NextPage = () => {
                   is not a negative (in terms of color). To make your QR code
                   even better, you can also get a QR code with logo.
                 </p>
+                <div>
+                  <button>Generate</button>
+                  <button>Scan</button>
+                </div>
               </aside>
               <div className="image">
                 <img src="./assets/QR Code-pana.svg" alt="qr code" />
