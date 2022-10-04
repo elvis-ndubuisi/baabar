@@ -9,6 +9,8 @@ const Footer = () => {
           <Link href="/">
             <div className="brand">BaaBar.</div>
           </Link>
+          <Link href="/">Privary Policy</Link>
+          <Link href="/">Terms of use</Link>
         </div>
 
         <nav>
