@@ -118,7 +118,6 @@ const Shortener = () => {
           </p>
         </section>
       </section>
-      <Footer />
     </>
   );
 };

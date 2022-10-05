@@ -8,12 +8,11 @@ const Barcode = () => {
         <div className="wrapper">
           <Navbar />
           <section>
-            <h1>QR Generator</h1>
+            <h1>Generate a QR code in seconds.</h1>
           </section>
         </div>
       </section>
       <main></main>
-      <Footer />
     </>
   );
 };

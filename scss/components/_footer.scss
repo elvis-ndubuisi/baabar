@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-around;
     font-weight: v.$fw-medium;
 
     > div:first-child {
@@ -29,8 +29,9 @@
     }
 
     .brand {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       font-weight: v.$fw-bold;
+      margin-bottom: 0.5em;
     }
 
     ul {
@@ -72,34 +73,32 @@
     }
 
     .socials {
-      > div {
-        display: flex;
-        gap: 1em;
-        margin-bottom: 1em;
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
 
-        a {
-          height: 40px;
-          width: 40px;
-          border-radius: 50%;
-          display: grid;
-          place-content: center;
+      a {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        display: grid;
+        place-content: center;
 
-          &:hover,
-          &:focus {
-            color: v.$clr-white;
-            background-color: v.$clr-black;
-            transition: all 0.3s ease;
-          }
+        &:hover,
+        &:focus {
+          color: v.$clr-white;
+          background-color: v.$clr-black;
+          transition: all 0.3s ease;
+        }
 
-          > * {
-            font-size: 1.5rem;
-          }
+        > * {
+          font-size: 1.5rem;
         }
       }
 
       button {
         width: 100%;
-        max-width: 200px;
+        max-width: 150px;
         font-weight: v.$fw-medium;
         text-transform: capitalize;
         border-radius: 5px;

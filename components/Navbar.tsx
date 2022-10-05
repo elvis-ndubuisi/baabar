@@ -42,7 +42,6 @@ const Navbar = () => {
           baa<span className="blue">Bar.</span>
         </a>
       </Link>
-      <div className="line"></div>
       <div className="menu-button">
         <button disabled={disableMenu} onClick={handleMenu}>
           {menu.menuText}

@@ -1,9 +1,37 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Footer from "../components/Footer";
+import { useEffect, useRef } from "react";
 import Showcase from "../components/Showcase";
+import { gsap, Power3 } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
 
 const Home: NextPage = () => {
+  const trigger = useRef(null);
+  let comp = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: trigger.current,
+        // pin: true, // pin the trigger element while active
+        start: "top center", // when the top of the trigger hits the top of the viewport
+        end: "+=500", // end after scrolling 500px beyond the start
+        scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        // snap: {
+        //   snapTo: "labels", // snap to the closest label in the timeline
+        //   duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+        //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+        //   ease: "power1.inOut", // the ease of the snap animation ("power3" by default)
+        // },
+      },
+    });
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -15,10 +43,10 @@ const Home: NextPage = () => {
       <main>
         <Showcase />
 
-        <section className="about">
+        <section className="about" ref={trigger}>
           <h2>Free tools for easy branding and more</h2>
           <section className="wrapper">
-            <div className="content">
+            <div className="content" ref={comp}>
               <div className="image">
                 <img src="./assets/www-pana.svg" alt="link shortner" />
               </div>
@@ -42,7 +70,7 @@ const Home: NextPage = () => {
 
             <div className="content">
               <aside>
-                <h4>Full customizable QR code</h4>
+                <h4>Fully customizable QR code</h4>
                 <p>
                   Add editable and trackable QR Codes on anything you want with
                   full branding and customization feature
@@ -68,8 +96,6 @@ const Home: NextPage = () => {
           </section>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

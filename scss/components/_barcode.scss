@@ -3,4 +3,19 @@
 .code-landing {
   background-color: v.$clr-black;
   min-height: 80vh;
+  color: v.$clr-white;
+
+  /* Change navbar properties */
+  .brand {
+    color: v.$clr-white;
+
+    .blue {
+      color: v.$clr-mstYellow;
+    }
+  }
+
+  .menu-button {
+    color: v.$clr-mstYellow;
+  }
+  /* End: Change navbar properties */
 }
