@@ -48,11 +48,11 @@ const terms = () => {
         <h3>Warranties</h3>
         <p>
           We strive to provide good Services and hope you enjoy using them. But
-          there are things we cannot guarantee. We provide our Services "As is".
-          To the fullest extend permitted by law, we make no warranties either
-          implied or expressed about the Services. We do not make any promise
-          about the specific functions of the services, their reliability or
-          availability.
+          there are things we cannot guarantee. We provide our Services
+          &ldquo;As is&ldquo;. To the fullest extend permitted by law, we make
+          no warranties either implied or expressed about the Services. We do
+          not make any promise about the specific functions of the services,
+          their reliability or availability.
         </p>
         <h3>Changes of Terms</h3>
         <p>
