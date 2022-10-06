@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import { useEffect, useRef, useState } from "react";
 import { gsap, Power3, Elastic } from "gsap";
-import { AiOutlineCopy } from "react-icons/ai";
+import { AiOutlineCopy, AiOutlineSend } from "react-icons/ai";
 import Link from "next/link";
 
 const Shortener = () => {
@@ -88,12 +88,14 @@ const Shortener = () => {
             src="./assets/3d-casual-life-lines-heart-1.png"
             alt="3d-casual-life-lines-heart-1"
           />
+
           <h1 ref={(el) => (heading = el)}>Shorten, Share, So Easy</h1>
           <h2>Easier way to share links.</h2>
           <form className="link-input" onSubmit={handleSubmit}>
             <div ref={(el) => (inputGroup = el)}>
               <input type="text" placeholder="Enter link" />
               <button>Generate</button>
+              <AiOutlineSend size={24} className="ico" />
             </div>
           </form>
           <div className="url" ref={(el) => (urlRef = el)}>
