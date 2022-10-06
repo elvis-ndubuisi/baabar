@@ -24,10 +24,18 @@
       overflow: hidden;
       padding: 1em;
 
+      @media (max-width: 768px) {
+        text-align: center;
+      }
+
       h4 {
         font-size: 1.8rem;
         opacity: 0.8;
         display: none;
+
+        @media (max-width: 768px) {
+          font-size: 1.2rem;
+        }
       }
 
       .caption-text {
@@ -46,7 +54,16 @@
             display: none;
             font-size: 3.5rem;
             position: relative;
+
+            @media (max-width: 768px) {
+              font-size: 2.2rem;
+            }
           }
+        }
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+          height: auto;
         }
       }
 
@@ -64,11 +81,19 @@
 
       div:last-child {
         display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 2em;
         flex-wrap: wrap;
 
         button {
           display: none;
+        }
+
+        @media (min-width: 768px) {
+          flex-direction: row;
+
+          justify-content: center;
         }
       }
     }
@@ -81,6 +106,10 @@
       overflow: hidden;
       display: grid;
       place-items: center;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
 
       .reveal-img {
         position: absolute;

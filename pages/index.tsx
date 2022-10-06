@@ -4,11 +4,12 @@ import { useEffect, useRef } from "react";
 import Showcase from "../components/Showcase";
 import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const trigger = useRef(null);
   let comp = useRef(null);
+  let siblings = gsap.utils.selector(comp);
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
         // pin: true, // pin the trigger element while active
         start: "top center", // when the top of the trigger hits the top of the viewport
         end: "+=500", // end after scrolling 500px beyond the start
-        scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        scrub: 0.5, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
         // snap: {
         //   snapTo: "labels", // snap to the closest label in the timeline
         //   duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
@@ -27,6 +28,19 @@ const Home: NextPage = () => {
         // },
       },
     });
+
+    tl.to(siblings(".content"), {
+      opacity: 1,
+      duration: 1,
+      y: 0,
+      // ease: Power3.easeInOut,
+      stagger: {
+        ease: Power3.easeInOut,
+        amount: 1,
+        from: "start",
+      },
+    });
+
     return () => {
       tl.kill();
     };
@@ -45,8 +59,8 @@ const Home: NextPage = () => {
 
         <section className="about" ref={trigger}>
           <h2>Free tools for easy branding and more</h2>
-          <section className="wrapper">
-            <div className="content" ref={comp}>
+          <section className="wrapper" ref={comp}>
+            <div className="content">
               <div className="image">
                 <img src="./assets/www-pana.svg" alt="link shortner" />
               </div>
@@ -64,7 +78,9 @@ const Home: NextPage = () => {
                   locations.
                 </p>
 
-                <button>Shorten Url</button>
+                <Link href="shortener">
+                  <a className="btn">Shorten Link</a>
+                </Link>
               </aside>
             </div>
 
@@ -79,14 +95,16 @@ const Home: NextPage = () => {
                   A QR code is a two dimensional barcode that stores information
                   in black and white dots (called data pixels or “QR code
                   modules”). Besides the black and white version, you can also
-                  create a colored QR code. For these codes to work without
-                  problems, make sure the contrast is sufficient and the result
-                  is not a negative (in terms of color). To make your QR code
-                  even better, you can also get a QR code with logo.
+                  create a colored QR code. To make your QR code even better,
+                  you can also get a QR code with logo.
                 </p>
                 <div>
-                  <button>Generate</button>
-                  <button>Scan</button>
+                  <Link href="barcode">
+                    <a className="btn">Generate</a>
+                  </Link>
+                  <Link href="scan">
+                    <a className="btn">Scan File</a>
+                  </Link>
                 </div>
               </aside>
               <div className="image">
@@ -95,6 +113,8 @@ const Home: NextPage = () => {
             </div>
           </section>
         </section>
+
+        {/* <section className="mobile-ad"></section> */}
       </main>
     </>
   );

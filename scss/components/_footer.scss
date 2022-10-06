@@ -8,12 +8,17 @@
 
   .wrapper {
     width: 100%;
-    padding: 2em 0 1em 0;
+    padding: 2em 1em 1em 1em;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
     font-weight: v.$fw-medium;
+    gap: 2em;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
 
     > div:first-child {
       display: flex;

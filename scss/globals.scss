@@ -19,6 +19,7 @@ body {
   font-family: v.$ff;
   background-color: v.$clr-white;
   color: v.$clr-black;
+  overflow-x: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
