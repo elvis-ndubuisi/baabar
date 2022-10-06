@@ -16,4 +16,11 @@
   background-color: v.$clr-white;
   border: solid 2px v.$clr-black;
   box-shadow: 3px 4px v.$clr-darkCyan;
+  transition: all 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    box-shadow: 3px 4px v.$clr-red;
+    border-color: v.$clr-red;
+  }
 }
