@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Menu from "./Menu";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 let disableTimer = 1000;
 

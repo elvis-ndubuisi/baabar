@@ -1,6 +1,9 @@
-import { gsap, Power3 } from "gsap";
+import { gsap, Power3, Elastic } from "gsap";
 
-export const anim_menuOut = (node1, node2) => {
+export const anim_menuOut = (
+  node1: HTMLDivElement | null,
+  node2: HTMLDivElement | null
+) => {
   gsap.to([node1, node2], {
     duration: 0.8,
     height: 0,
@@ -9,7 +12,10 @@ export const anim_menuOut = (node1, node2) => {
   });
 };
 
-export const anim_menuIn = (node1, node2) => {
+export const anim_menuIn = (
+  node1: HTMLDivElement | null,
+  node2: HTMLDivElement | null
+) => {
   gsap.to([node1, node2], {
     duration: 0,
     opacity: 1,
@@ -17,7 +23,10 @@ export const anim_menuIn = (node1, node2) => {
   });
 };
 
-export const anim_menuInReveal = (node1, node2) => {
+export const anim_menuInReveal = (
+  node1: HTMLDivElement | null,
+  node2: HTMLDivElement | null
+) => {
   gsap.from([node1, node2], {
     duration: 0.8,
     height: 0,
@@ -28,7 +37,7 @@ export const anim_menuInReveal = (node1, node2) => {
   });
 };
 
-export const anim_infoIn = (node) => {
+export const anim_infoIn = (node: HTMLDivElement | null) => {
   gsap.from(node, {
     y: 60,
     duration: 1,
@@ -38,8 +47,13 @@ export const anim_infoIn = (node) => {
   });
 };
 
-export const anim_linkText = (node1, node2, node3, node4) => {
-  gsap.from([node1, node2, node3, node4], {
+export const anim_linkText = (
+  link1: HTMLAnchorElement | null,
+  link2: HTMLAnchorElement | null,
+  link3: HTMLAnchorElement | null,
+  link4: HTMLAnchorElement | null
+) => {
+  gsap.from([link1, link2, link3, link4], {
     duration: 0.8,
     y: 90,
     delay: 0.1,
@@ -66,7 +80,11 @@ export const anim_linkExit = (target: any) => {
   });
 };
 
-export const anim_showcaseImg = (showcase, revealImg, img) => {
+export const anim_showcaseImg = (
+  showcase: HTMLDivElement | null,
+  revealImg: HTMLDivElement | null,
+  img: HTMLImageElement | null
+) => {
   const tween = gsap
     .timeline()
     .to(showcase, { duration: 0, css: { visibility: "visible" } })
@@ -87,7 +105,10 @@ export const anim_showcaseImg = (showcase, revealImg, img) => {
   return tween;
 };
 
-export const anim_headingTween = (headingSiblings, subHead) => {
+export const anim_headingTween = (
+  headingSiblings: any,
+  subHead: HTMLHeadingElement | null
+) => {
   return gsap
     .timeline()
     .from(headingSiblings("h1"), {
@@ -102,5 +123,57 @@ export const anim_headingTween = (headingSiblings, subHead) => {
       x: -100,
       immediateRender: false,
       delay: -1.3,
+    });
+};
+
+export const anim_shortenLanding = (
+  heading: HTMLHeadingElement | null,
+  inputGroup: HTMLDivElement | null,
+  urlRef: HTMLHeadingElement | null
+) => {
+  return gsap
+    .timeline()
+    .from(heading, {
+      duration: 1,
+      scale: 5,
+      ease: Power3.easeInOut,
+      immediateRender: false,
+    })
+    .from(inputGroup, {
+      duration: 0.7,
+      delay: -0.7,
+      opacity: 0,
+      y: 100,
+      immediateRender: false,
+    })
+    .to(urlRef, { duration: 0.5, opacity: 1 });
+};
+
+export const anim_shortenImg = (
+  imgRight: HTMLImageElement | null,
+  imgleft: HTMLImageElement | null,
+  imgTop: HTMLImageElement | null
+) => {
+  return gsap
+    .timeline()
+    .from(imgRight, {
+      duration: 1,
+      ease: Elastic.easeInOut,
+      x: 500,
+      immediateRender: false,
+    })
+    .from(imgleft, {
+      duration: 1,
+      ease: Elastic.easeInOut,
+      y: 200,
+      delay: -1,
+      immediateRender: false,
+    })
+    .from(imgTop, {
+      duration: 0.8,
+      immediateRender: false,
+      ease: Power3.easeInOut,
+      scale: 0,
+      delay: -1,
     });
 };

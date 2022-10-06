@@ -1,22 +1,27 @@
 import Navbar from "./Navbar";
 import { useRef, useEffect } from "react";
 import { gsap, Power3, Quad } from "gsap";
+import Image from "next/image";
 import Link from "next/link";
 import { anim_showcaseImg, anim_headingTween } from "../libraries/animations";
 
 const Showcase = () => {
-  let showcaseRef = useRef(null) as any;
-  let subHeadingRef = useRef(null) as any;
-  let headingRef = useRef(null) as any;
-  let paragRef = useRef(null) as any;
+  let showcaseRef = useRef<HTMLDivElement>(null);
+  let subHeadingRef = useRef<HTMLHeadingElement>(null);
+  let headingRef = useRef<HTMLDivElement>(null);
+  let paragRef = useRef<HTMLParagraphElement>(null);
   let headingSiblings = gsap.utils.selector(headingRef);
-  let imgRef = useRef(null) as any;
-  let revealImg = useRef(null) as any;
-  let linkBtns = useRef(null) as any;
+  let imgRef = useRef<HTMLImageElement>(null);
+  let revealImg = useRef<HTMLDivElement>(null);
+  let linkBtns = useRef(null);
   let linkSiblings = gsap.utils.selector(linkBtns);
 
   useEffect(() => {
-    let imgTween = anim_showcaseImg(showcaseRef, revealImg, imgRef);
+    let imgTween = anim_showcaseImg(
+      showcaseRef.current,
+      revealImg.current,
+      imgRef.current
+    );
 
     gsap.to(headingSiblings("h1"), {
       duration: 0.5,
@@ -24,9 +29,12 @@ const Showcase = () => {
       stagger: 0.4,
     });
 
-    gsap.to(subHeadingRef, { duration: 0, css: { display: "block" } });
+    gsap.to(subHeadingRef.current, { duration: 0, css: { display: "block" } });
 
-    let headingTween = anim_headingTween(headingSiblings, subHeadingRef);
+    let headingTween = anim_headingTween(
+      headingSiblings,
+      subHeadingRef.current
+    );
 
     gsap.to(linkSiblings("button"), {
       css: { display: "block" },
@@ -35,7 +43,7 @@ const Showcase = () => {
       stagger: 0.4,
     });
 
-    let paragTween = gsap.timeline().from(paragRef, {
+    let paragTween = gsap.timeline().from(paragRef.current, {
       duration: 1,
       opacity: 0,
       ease: Quad.easeInOut,
@@ -50,12 +58,12 @@ const Showcase = () => {
   }, []);
 
   return (
-    <section className="showcase" ref={(el) => (showcaseRef = el)}>
+    <section className="showcase" ref={showcaseRef}>
       <section className="wrapper">
         <Navbar />
         <section className="showcase-content">
           <section className="showcase-caption">
-            <h4 ref={(el) => (subHeadingRef = el)}>Free, Safe, Simple</h4>
+            <h4 ref={subHeadingRef}>Free, Safe, Simple</h4>
             <div className="caption-text" ref={headingRef}>
               <span>
                 <h1>QR Code</h1>
@@ -65,7 +73,7 @@ const Showcase = () => {
               </span>
             </div>
 
-            <p ref={(el) => (paragRef = el)}>
+            <p ref={paragRef}>
               <span>#1</span> Free and fully customizable Barcode - Qr Code
               Generator, URL shortening service and Barcode scanner.
             </p>
@@ -84,12 +92,8 @@ const Showcase = () => {
             </div>
           </section>
           <div className="showcase-img">
-            <div className="reveal-img" ref={(el) => (revealImg = el)}></div>
-            <img
-              src="/assets/rockstar.svg"
-              alt="rockstar"
-              ref={(el) => (imgRef = el)}
-            />
+            <div className="reveal-img" ref={revealImg}></div>
+            <img src="/assets/rockstar.svg" alt="rockstar" ref={imgRef} />
           </div>
         </section>
       </section>

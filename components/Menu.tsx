@@ -12,39 +12,41 @@ import {
 } from "../libraries/animations";
 
 const Menu = ({ state }: any) => {
-  let menuRef: null | any = useRef(null);
-  let menuLayerRef: null | any = useRef(null);
-  let menuBackgroundRef: null | any = useRef(null);
-  let link1Ref: null | any = useRef(null);
-  let link2Ref: null | any = useRef(null);
-  let link3Ref: null | any = useRef(null);
-  let link4Ref: null | any = useRef(null);
-  let infoRef: null | any = useRef(null);
+  let menuRef = useRef<HTMLDivElement>(null);
+  let menuLayerRef = useRef<HTMLDivElement>(null);
+  let menuBackgroundRef = useRef<HTMLDivElement>(null);
+  let link1Ref = useRef<HTMLAnchorElement>(null);
+  let link2Ref = useRef<HTMLAnchorElement>(null);
+  let link3Ref = useRef<HTMLAnchorElement>(null);
+  let link4Ref = useRef<HTMLAnchorElement>(null);
+  let infoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (state.clicked === false) {
-      anim_menuOut(menuLayerRef, menuBackgroundRef);
-      gsap.to(menuRef, { duration: 1, css: { display: "none" } });
+      anim_menuOut(menuLayerRef.current, menuBackgroundRef.current);
+      gsap.to(menuRef.current, { duration: 1, css: { display: "none" } });
     } else if (
       state.clicked === true ||
       (state.initial === null && state.clicked === true)
     ) {
-      gsap.to(menuRef, { duration: 0, css: { display: "block" } });
-      anim_menuIn(menuBackgroundRef, menuLayerRef);
-      anim_menuInReveal(menuBackgroundRef, menuLayerRef);
-      anim_infoIn(infoRef);
-      anim_linkText(link1Ref, link2Ref, link3Ref, link4Ref);
+      gsap.to(menuRef.current, { duration: 0, css: { display: "block" } });
+      anim_menuIn(menuBackgroundRef.current, menuLayerRef.current);
+      anim_menuInReveal(menuBackgroundRef.current, menuLayerRef.current);
+      anim_infoIn(infoRef.current);
+      anim_linkText(
+        link1Ref.current,
+        link2Ref.current,
+        link3Ref.current,
+        link4Ref.current
+      );
     }
     // return () => {};
   }, [state]);
 
   return (
-    <div ref={(el) => (menuRef = el)} className="menu">
-      <div
-        ref={(el) => (menuBackgroundRef = el)}
-        className="menu-secondary-background"
-      ></div>
-      <div ref={(el) => (menuLayerRef = el)} className="menu-layer">
+    <div ref={menuRef} className="menu">
+      <div ref={menuBackgroundRef} className="menu-secondary-background"></div>
+      <div ref={menuLayerRef} className="menu-layer">
         <div className="menu-service-background"></div>
         <div className="wrapper">
           <div className="menu-container">
@@ -54,7 +56,7 @@ const Menu = ({ state }: any) => {
                   <li>
                     <Link href="/shortener">
                       <a
-                        ref={(el) => (link1Ref = el)}
+                        ref={link1Ref}
                         onMouseEnter={(e) => anim_linkHover(e.target)}
                         onMouseLeave={(e) => anim_linkExit(e.target)}
                       >
@@ -65,7 +67,7 @@ const Menu = ({ state }: any) => {
                   <li>
                     <Link href="/barcode">
                       <a
-                        ref={(el) => (link2Ref = el)}
+                        ref={link2Ref}
                         onMouseEnter={(e) => anim_linkHover(e.target)}
                         onMouseLeave={(e) => anim_linkExit(e.target)}
                       >
@@ -76,7 +78,7 @@ const Menu = ({ state }: any) => {
                   <li>
                     <Link href="/">
                       <a
-                        ref={(el) => (link3Ref = el)}
+                        ref={link3Ref}
                         onMouseEnter={(e) => anim_linkHover(e.target)}
                         onMouseLeave={(e) => anim_linkExit(e.target)}
                       >
@@ -87,7 +89,7 @@ const Menu = ({ state }: any) => {
                   <li>
                     <Link href="/scanner">
                       <a
-                        ref={(el) => (link4Ref = el)}
+                        ref={link4Ref}
                         onMouseEnter={(e) => anim_linkHover(e.target)}
                         onMouseLeave={(e) => anim_linkExit(e.target)}
                       >
@@ -97,7 +99,7 @@ const Menu = ({ state }: any) => {
                   </li>
                 </ul>
               </nav>
-              <div ref={(el) => (infoRef = el)} className="info">
+              <div ref={infoRef} className="info">
                 <h3>info text</h3>
                 <p>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
