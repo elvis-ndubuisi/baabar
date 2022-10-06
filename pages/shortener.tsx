@@ -1,12 +1,10 @@
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { useEffect, useRef, useState } from "react";
 import { gsap, Power3, Elastic } from "gsap";
 import { AiOutlineCopy } from "react-icons/ai";
 import Link from "next/link";
 
 const Shortener = () => {
-  let linkField = useRef() as any;
   let heading = useRef(null) as any;
   let inputGroup = useRef(null) as any;
   let urlRef = useRef(null) as any;

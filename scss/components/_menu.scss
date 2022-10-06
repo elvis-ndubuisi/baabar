@@ -44,7 +44,7 @@
         justify-content: space-between;
         align-items: center;
         position: relative;
-        top: 70px;
+        top: 10vh;
 
         nav {
           flex: 1;
@@ -60,6 +60,11 @@
             height: 120px;
             overflow: hidden;
             position: relative;
+
+            @media (max-width: 768px) {
+              font-size: 2.6rem;
+              height: 80px;
+            }
 
             a {
               position: absolute;
@@ -77,6 +82,10 @@
           color: v.$clr-white;
           width: 300px;
           flex: 0.5;
+
+          @media (max-width: 768px) {
+            display: none;
+          }
 
           h3 {
             font-size: 1.4rem;
@@ -98,6 +107,13 @@
           font-size: 0.8rem;
           font-weight: v.$fw-medium;
           width: 100%;
+
+          @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            bottom: -60%;
+            gap: 0.3em;
+          }
 
           span {
             cursor: pointer;

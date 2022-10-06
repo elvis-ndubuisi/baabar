@@ -16,6 +16,10 @@
     bottom: -40px;
     right: -30px;
     z-index: -1;
+
+    @media (max-width: 768px) {
+      max-width: 400px;
+    }
   }
 
   .bottom-left {
@@ -39,6 +43,10 @@
     font-size: 5rem;
     line-height: 1em;
     opacity: 0.9;
+
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
   }
 
   h2 {

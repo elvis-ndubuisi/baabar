@@ -105,7 +105,7 @@ const Menu = ({ state }: any) => {
                 </p>
               </div>
               <div className="other-projects">
-                Locations: <span>Lorem Generator</span>
+                Other Products: <span>Lorem Generator</span>
                 <span>Daller</span>
                 <span>Daller</span>
                 <span>Daller</span>
