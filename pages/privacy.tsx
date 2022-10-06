@@ -10,19 +10,20 @@ const privacy = () => {
         <small>Effective October, 2022</small>
 
         <p>
-          Baabar ("we", or "us") values your trust and a key part of earning
-          your trust is being upfront and clear in how we gather and use your
-          information. We created this Policy to inform you on what data we
-          collect, how we collect your data, how we share your data, and your
-          rights around the data. This Policy applies when you use our services
-          available through Baabar ("Site"). For the purposes of this Policy,
-          the Site, features, content, applications, and other services provided
-          by Baabar will be referred to as the "Services". This Policy works in
-          conjunction with the Site’s Terms of Use. Any capitalized terms used,
-          but not defined, in this Policy have the meanings provided in the
-          Terms of Use. If you do not agree with our policies and practices,
-          please do not use our Services. By accessing or using our Services,
-          you agree to this Policy.
+          Baabar (&ldquo;we&ldquo;, or &ldquo;us&ldquo;) values your trust and a
+          key part of earning your trust is being upfront and clear in how we
+          gather and use your information. We created this Policy to inform you
+          on what data we collect, how we collect your data, how we share your
+          data, and your rights around the data. This Policy applies when you
+          use our services available through Baabar (&ldquo;Site&ldquo;). For
+          the purposes of this Policy, the Site, features, content,
+          applications, and other services provided by Baabar will be referred
+          to as the &ldquo;Services&ldquo;. This Policy works in conjunction
+          with the Site&apos;s Terms of Use. Any capitalized terms used, but not
+          defined, in this Policy have the meanings provided in the Terms of
+          Use. If you do not agree with our policies and practices, please do
+          not use our Services. By accessing or using our Services, you agree to
+          this Policy.
         </p>
 
         <h3>WHAT INFORMATION WE COLLECT AND HOW WE COLLECT IT</h3>
@@ -37,10 +38,10 @@ const privacy = () => {
           <span> Google Analytics</span> : We measure visitors to our website
           using Google Analytics. This records what pages you view within our
           site, how you arrived at our site and some basic information about
-          your computer. All of that information is anonymous. So we don’t know
-          who you are, just that somebody visited our site. The information we
-          collect from analytics helps us understand what parts of our sites are
-          doing well, how people arrive at our site and so on. Like most
+          your computer. All of that information is anonymous. So we don&apos;t
+          know who you are, just that somebody visited our site. The information
+          we collect from analytics helps us understand what parts of our sites
+          are doing well, how people arrive at our site and so on. Like most
           websites, we use this information to make our website better. Please
           see here{" "}
           <a href="https://policies.google.com/technologies/partner-sites">
@@ -86,10 +87,10 @@ const privacy = () => {
           directly encode all content directly in the image itself. We do not
           collect, transmit or store any information you enter. The Code is
           generated directly in the browser without transmiting any information
-          to a remote system (that's why it also works offline by the way).
+          to a remote system (that&spos;s why it also works offline by the way).
         </p>
 
-        <h4>Children’s Privacy</h4>
+        <h4>Children&apos;s Privacy</h4>
         <p>
           Our Services are not intended for and may not be used by children
           under the age of 13. We do not knowingly collect information from
