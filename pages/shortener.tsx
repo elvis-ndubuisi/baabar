@@ -1,8 +1,14 @@
 import Navbar from "../components/Navbar";
 import { useEffect, useRef, useState } from "react";
-import { AiOutlineCopy, AiOutlineSend } from "react-icons/ai";
+import {
+  AiOutlineCopy,
+  AiOutlineSend,
+  AiOutlineLoading3Quarters,
+} from "react-icons/ai";
 import { anim_shortenImg, anim_shortenLanding } from "../libraries/animations";
 import Link from "next/link";
+import { json } from "stream/consumers";
+let shortenApi = "https://bit.cyclic.app";
 
 const Shortener = () => {
   let heading = useRef<HTMLHeadingElement>(null);
@@ -12,9 +18,21 @@ const Shortener = () => {
   let imgRight = useRef<HTMLImageElement>(null);
   let imgTop = useRef<HTMLImageElement>(null);
 
-  const [url, setUrl] = useState("Generated Url here..");
+  const [url, setUrl] = useState("");
+  const [fetching, setFetching] = useState(false);
+  const [shortenedLink, setShortenedLink] = useState("");
 
-  const handleSubmit = () => {};
+  const handleSubmit = async () => {
+    try {
+      const resp = await fetch("https://bit.cyclic.app", {
+        method: "POST",
+        body: JSON.stringify({ url: url }),
+      });
+      console.log(resp);
+    } catch (error) {
+      console.log("error on catch", error);
+    }
+  };
 
   useEffect(() => {
     let tween = anim_shortenLanding(
@@ -61,15 +79,27 @@ const Shortener = () => {
 
           <h1 ref={heading}>Shorten, Share, So Easy</h1>
           <h2>Easier way to share links.</h2>
-          <form className="link-input" onSubmit={handleSubmit}>
+          <form className="link-input" onSubmit={(e) => e.preventDefault()}>
             <div ref={inputGroup}>
-              <input type="text" placeholder="Enter link" />
-              <button>Generate</button>
-              <AiOutlineSend size={24} className="ico" />
+              <input
+                type="text"
+                placeholder="Enter link"
+                onChange={(event) => setUrl(event.target.value)}
+              />
+              <button onClick={handleSubmit}>
+                <>
+                  {fetching ? (
+                    <AiOutlineLoading3Quarters size={24} />
+                  ) : (
+                    "Generate"
+                  )}
+                </>
+              </button>
+              <AiOutlineSend size={24} className="ico" onClick={handleSubmit} />
             </div>
           </form>
           <div className="url" ref={urlRef}>
-            <p>{url}</p>
+            <p>{shortenedLink}</p>
             <i>
               <AiOutlineCopy size={24} />
             </i>

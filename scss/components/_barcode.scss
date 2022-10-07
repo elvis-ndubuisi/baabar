@@ -2,7 +2,7 @@
 
 .code-landing {
   background-color: v.$clr-black;
-  min-height: 80vh;
+  height: 60vh;
   color: v.$clr-white;
 
   /* Change navbar properties */
@@ -18,4 +18,48 @@
     color: v.$clr-mstYellow;
   }
   /* End: Change navbar properties */
+
+  .qcode {
+    // display: grid;
+    // place-content: center;
+    // margin-top: 2em;
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      padding: 0 1em;
+      margin-top: 3vh;
+
+      @media (max-width: 768px) {
+        font-size: 2.1rem;
+      }
+
+      @media (max-width: 375px) {
+        font-size: 1.9rem;
+      }
+    }
+  }
+}
+
+.gen-container {
+  position: relative;
+  padding: 0 0.5em;
+
+  .generator {
+    width: 100%;
+    max-width: 1000px;
+    margin-inline: auto;
+    padding: 0.5em;
+    border-radius: 0.3em;
+    position: relative;
+    top: -30vh;
+    z-index: 5;
+    min-height: 500px;
+    border: solid v.$clr-red 2px;
+    background-color: v.$clr-white;
+
+    @media (max-width: 375px) {
+      top: -20vh;
+    }
+  }
 }
