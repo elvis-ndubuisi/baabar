@@ -7,8 +7,6 @@ import {
 } from "react-icons/ai";
 import { anim_shortenImg, anim_shortenLanding } from "../libraries/animations";
 import Link from "next/link";
-import { json } from "stream/consumers";
-let shortenApi = "https://bit.cyclic.app";
 
 const Shortener = () => {
   let heading = useRef<HTMLHeadingElement>(null);
@@ -21,17 +19,34 @@ const Shortener = () => {
   const [url, setUrl] = useState("");
   const [fetching, setFetching] = useState(false);
   const [shortenedLink, setShortenedLink] = useState("");
+  const [copied, setCopied] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async () => {
     try {
-      const resp = await fetch("https://bit.cyclic.app", {
+      const response = await fetch("https//localhost:8000/", {
         method: "POST",
+        mode: "cors",
         body: JSON.stringify({ url: url }),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
       });
-      console.log(resp);
-    } catch (error) {
-      console.log("error on catch", error);
+      const short = await response.json();
+      console.log(short.url);
+      setShortenedLink(short.url);
+    } catch (err) {
+      console.log(err);
     }
+  };
+
+  const copyToClipboard = () => {
+    if (shortenedLink) {
+      navigator.clipboard.writeText(shortenedLink);
+      setCopied(true);
+    }
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -101,9 +116,15 @@ const Shortener = () => {
           <div className="url" ref={urlRef}>
             <p>{shortenedLink}</p>
             <i>
-              <AiOutlineCopy size={24} />
+              <AiOutlineCopy
+                size={24}
+                onClick={copyToClipboard}
+                style={copied ? { color: "green" } : { color: "black" }}
+              />
             </i>
           </div>
+          {hasError && <small style={{ color: "red" }}>{error}</small>}
+
           <div className="misc">
             <Link href="qrcode">Generate QR Code ?</Link>
           </div>
@@ -123,3 +144,5 @@ const Shortener = () => {
 };
 
 export default Shortener;
+
+// navigator.clipboard.writeText(text);}}>
