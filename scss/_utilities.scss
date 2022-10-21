@@ -24,3 +24,16 @@
     border-color: v.$clr-red;
   }
 }
+
+/* Mixins */
+@mixin flex($dir: "row", $wrap: "no-wrap") {
+  display: flex;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+}
+
+@mixin gridCenter() {
+  display: grid;
+  place-content: center;
+  place-items: center;
+}

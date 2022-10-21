@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import {
   anim_menuIn,
@@ -20,6 +20,38 @@ const Menu = ({ state }: any) => {
   let link3Ref = useRef<HTMLAnchorElement>(null);
   let link4Ref = useRef<HTMLAnchorElement>(null);
   let infoRef = useRef<HTMLDivElement>(null);
+
+  const [linkInfo, setLinkInfo] = useState({
+    title: "",
+    description: "",
+  } as { title: string; description: string });
+
+  const showLinkInfo = (target: any) => {
+    let linkName = target.innerText;
+    if (linkName.toLowerCase() === "shortener") {
+      setLinkInfo({
+        title: "Link Shortener",
+        description:
+          "Reduce long URL links to short and easy to remember links. All generated links are 24hrs reliable.",
+      });
+    } else if (linkName.toLowerCase() === "qr code") {
+      setLinkInfo({
+        title: "Generate High Quality QR codes",
+        description:
+          "Generate and customize high quality QR codes in seconds. Download in Printable formats.",
+      });
+    } else if (linkName.toLowerCase() === "scanner") {
+      setLinkInfo({
+        title: "Scan Qr code files",
+        description:
+          "Upload a QR code image or scan QR code using your device camera. All informations are never avaliable to us.",
+      });
+    }
+  };
+
+  const hideLinkInfo = () => {
+    setLinkInfo({ title: "", description: "" });
+  };
 
   useEffect(() => {
     if (state.clicked === false) {
@@ -57,30 +89,45 @@ const Menu = ({ state }: any) => {
                     <Link href="/shortener">
                       <a
                         ref={link1Ref}
-                        onMouseEnter={(e) => anim_linkHover(e.target)}
-                        onMouseLeave={(e) => anim_linkExit(e.target)}
+                        onMouseEnter={(e) => {
+                          anim_linkHover(e.target);
+                          showLinkInfo(e.target);
+                        }}
+                        onMouseLeave={(e) => {
+                          anim_linkExit(e.target);
+                          hideLinkInfo();
+                        }}
                       >
                         Shortener
                       </a>
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/barcode">
                       <a
                         ref={link2Ref}
-                        onMouseEnter={(e) => anim_linkHover(e.target)}
+                        onMouseEnter={(e) => {
+                          anim_linkHover(e.target);
+                          showLinkInfo(e.target);
+                        }}
                         onMouseLeave={(e) => anim_linkExit(e.target)}
                       >
                         BarCode
                       </a>
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link href="/">
                       <a
                         ref={link3Ref}
-                        onMouseEnter={(e) => anim_linkHover(e.target)}
-                        onMouseLeave={(e) => anim_linkExit(e.target)}
+                        onMouseEnter={(e) => {
+                          anim_linkHover(e.target);
+                          showLinkInfo(e.target);
+                        }}
+                        onMouseLeave={(e) => {
+                          anim_linkExit(e.target);
+                          hideLinkInfo();
+                        }}
                       >
                         Qr code
                       </a>
@@ -90,8 +137,14 @@ const Menu = ({ state }: any) => {
                     <Link href="/scanner">
                       <a
                         ref={link4Ref}
-                        onMouseEnter={(e) => anim_linkHover(e.target)}
-                        onMouseLeave={(e) => anim_linkExit(e.target)}
+                        onMouseEnter={(e) => {
+                          anim_linkHover(e.target);
+                          showLinkInfo(e.target);
+                        }}
+                        onMouseLeave={(e) => {
+                          anim_linkExit(e.target);
+                          hideLinkInfo();
+                        }}
                       >
                         Scanner
                       </a>
@@ -100,20 +153,17 @@ const Menu = ({ state }: any) => {
                 </ul>
               </nav>
               <div ref={infoRef} className="info">
-                <h3>info text</h3>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Consequatur, molestiae.
-                </p>
+                <h3>{linkInfo.title}</h3>
+                <p>{linkInfo.description}</p>
               </div>
-              <div className="other-projects">
+              {/* <div className="other-projects">
                 Other Products: <span>Lorem Generator</span>
                 <span>Daller</span>
                 <span>Daller</span>
                 <span>Daller</span>
                 <span>Daller</span>
                 <span>Daller</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

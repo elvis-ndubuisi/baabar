@@ -5,8 +5,28 @@ import Showcase from "../components/Showcase";
 import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 
-const Home: NextPage = () => {
+export async function getStaticProps() {
+  const mdxFiles = fs.readdirSync(path.join("mdx"));
+
+  const articles = mdxFiles.map((filename) => {
+    const slug = filename.replace(".md", "");
+
+    return {
+      slug,
+    };
+  });
+
+  return {
+    props: {
+      articles: "articles",
+    },
+  };
+}
+
+const Home: NextPage = ({ articles }) => {
   const trigger = useRef(null);
   let comp = useRef(null);
   let siblings = gsap.utils.selector(comp);

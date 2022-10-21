@@ -129,16 +129,20 @@ const Shortener = () => {
             <Link href="qrcode">Generate QR Code ?</Link>
           </div>
         </section>
-
-        <section className=" shorten-caption wrapper">
-          <h2>Shorten URLs or Brand Links</h2>
-          <p>
-            Free custom URL Shortener with many features that gives you better
-            quality for links shortening. Shortened URLs will never expire. We
-            do not display ads during direct redirecting to the original url.
-          </p>
-        </section>
       </section>
+      <section className=" shorten-caption wrapper">
+        <h2>Shorten URLs or Brand Links</h2>
+        <p>
+          Free custom URL Shortener with many features that gives you better
+          quality for links shortening. Shortened URLs will never expire. We do
+          not display ads during direct redirecting to the original url.
+        </p>
+      </section>
+
+      <aside className="wrapper">
+        <h2>Articles</h2>
+        <section>article cards</section>
+      </aside>
     </>
   );
 };

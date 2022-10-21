@@ -30,7 +30,11 @@
       text-transform: capitalize;
       font-size: 1.2rem;
       color: v.$clr-darkCyan;
-      margin-bottom: 0.8em;
+    }
+
+    p {
+      margin: 0.8em 0;
+      max-width: 300px;
     }
 
     .brand {
@@ -40,9 +44,10 @@
     }
 
     ul {
+      margin-top: 1em;
       display: inline-flex;
-      flex-direction: column;
-      gap: 0.5em;
+      flex-direction: row;
+      gap: 1em;
 
       li {
         list-style: none;
@@ -54,7 +59,7 @@
         &:hover {
           opacity: 1;
           color: v.$clr-orange;
-          transform: translateX(20px);
+          text-decoration: underline;
         }
       }
     }

@@ -11,6 +11,10 @@ const Footer = () => {
               Baa<span>Bar.</span>
             </div>
           </Link>
+          <p>
+            Free Link Shortener, QR code and Barcode generator. Scan QR code
+            image files.{" "}
+          </p>
 
           <div className="socials">
             <a href="">
@@ -22,10 +26,6 @@ const Footer = () => {
             <a href="">
               <FiMail />
             </a>
-            <button>
-              <FiCoffee size={24} />
-              <span>Send a Tip</span>
-            </button>
           </div>
         </section>
 
@@ -50,7 +50,7 @@ const Footer = () => {
         </section> */}
 
         <section>
-          <h3></h3>
+          <p>@2022. All Rights Reserved</p>
           <ul>
             <li>
               <Link href="privacy">Privary Policy</Link>
