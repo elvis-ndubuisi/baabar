@@ -32,7 +32,14 @@ export async function getStaticProps() {
   };
 }
 
-const Home: NextPage = ({ articles }) => {
+const Home: NextPage = ({
+  articles,
+}: [
+  {
+    slug: string;
+    frontmatter: { title: string; cover_img: string; tag: string };
+  }
+]) => {
   const trigger = useRef(null);
   let comp = useRef(null);
   let siblings = gsap.utils.selector(comp);

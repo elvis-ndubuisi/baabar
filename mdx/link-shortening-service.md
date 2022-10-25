@@ -1,7 +1,7 @@
 ---
 title: "URL shortening services"
 excerpt: "sdf sdfgdskdkdiei"
-cover_image: "dskfjdklasfjkldasjf"
+cover_img: "dskfjdklasfjkldasjf"
 ---
 
 ![](img)

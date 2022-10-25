@@ -18,7 +18,11 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) {
   const markdowWithMeta = fs.readFileSync(
     path.join("mdx", slug + ".md"),
     "utf-8"
@@ -36,11 +40,16 @@ export async function getStaticProps({ params: { slug } }) {
 }
 
 export default function Article({
-  frontmatter: { title, cover_img, tag, excerpt },
+  frontmatter,
   slug,
   content,
+}: {
+  frontmatter: { title: string; cover_img: string; excerpt: string };
+  slug: string;
+  content: string;
 }) {
-  console.log(cover_img);
+  let { title, cover_img, excerpt } = frontmatter;
+
   return (
     <>
       <Head>

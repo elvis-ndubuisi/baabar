@@ -1,7 +1,7 @@
 ---
 title: "what are bar codes and Why you need them"
 excerpt: "sdf sdfgdskdkdiei"
-cover_image: "dskfjdklasfjkldasjf"
+cover_img: "dskfjdklasfjkldasjf"
 tag: "barcode"
 ---
 
