@@ -7,21 +7,27 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
+import matter from "gray-matter";
+import Article from "../components/Article";
 
 export async function getStaticProps() {
   const mdxFiles = fs.readdirSync(path.join("mdx"));
 
   const articles = mdxFiles.map((filename) => {
+    // TODO: filter wanted articles for home page.
     const slug = filename.replace(".md", "");
+    const mdxMeta = fs.readFileSync(path.join("mdx", filename), "utf-8");
+    const { data: frontmatter } = matter(mdxMeta);
 
     return {
       slug,
+      frontmatter,
     };
   });
 
   return {
     props: {
-      articles: "articles",
+      articles: articles,
     },
   };
 }
@@ -70,6 +76,13 @@ const Home: NextPage = ({ articles }) => {
 
       <main>
         <Showcase />
+
+        <section className="wrapper articles">
+          {articles &&
+            articles.map((article, idx) => (
+              <Article key={idx} article={article} />
+            ))}
+        </section>
 
         <section className="about" ref={trigger}>
           <h2>Free tools for easy branding and more</h2>

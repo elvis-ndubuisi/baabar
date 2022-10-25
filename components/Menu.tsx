@@ -40,6 +40,12 @@ const Menu = ({ state }: any) => {
         description:
           "Generate and customize high quality QR codes in seconds. Download in Printable formats.",
       });
+    } else if (linkName.toLowerCase() === "barcode") {
+      setLinkInfo({
+        title: "Generate High Quality Barcodes",
+        description:
+          "Generate and customize high quality QR codes in seconds. Download in Printable formats.",
+      });
     } else if (linkName.toLowerCase() === "scanner") {
       setLinkInfo({
         title: "Scan Qr code files",
@@ -102,7 +108,7 @@ const Menu = ({ state }: any) => {
                       </a>
                     </Link>
                   </li>
-                  {/* <li>
+                  <li>
                     <Link href="/barcode">
                       <a
                         ref={link2Ref}
@@ -115,9 +121,9 @@ const Menu = ({ state }: any) => {
                         BarCode
                       </a>
                     </Link>
-                  </li> */}
+                  </li>
                   <li>
-                    <Link href="/">
+                    <Link href="/qcode">
                       <a
                         ref={link3Ref}
                         onMouseEnter={(e) => {

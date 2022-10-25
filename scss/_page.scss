@@ -1,5 +1,13 @@
 @use "./variables.scss" as v;
 
+.articles {
+  margin-block: 1em;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 18px;
+}
+
 .about {
   padding: 1em 0;
   background-color: lighten(v.$clr-black, 10);
@@ -149,6 +157,50 @@
   );
 }
 
-.article {
-  background-color: red;
+.pg-article {
+  margin-bottom: 2em;
+
+  .article-img {
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+    margin: 2em 0;
+    border-radius: 0.4em;
+  }
+
+  .article-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  .article-body {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    // align-items: flex-start;
+    gap: 1rem;
+    max-width: 900px;
+
+    p {
+      text-align: justify;
+    }
+
+    li {
+      margin-left: 2em;
+    }
+
+    a {
+      color: violet;
+    }
+
+    img {
+      max-height: 400px;
+      margin: auto;
+      object-fit: contain;
+    }
+  }
 }

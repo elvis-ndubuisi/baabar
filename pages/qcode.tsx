@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import type { NextPage } from "next";
 
-const Barcode: NextPage = () => {
+const Qcode: NextPage = () => {
   return (
     <>
       <section className="code-landing">
@@ -20,4 +20,4 @@ const Barcode: NextPage = () => {
   );
 };
 
-export default Barcode;
+export default Qcode;

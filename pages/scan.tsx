@@ -1,6 +1,6 @@
-import React from "react";
+import type { NextPage } from "next";
 
-const Scanner = () => {
+const Scanner: NextPage = () => {
   return <main>Scanner</main>;
 };
 

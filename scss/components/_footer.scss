@@ -93,11 +93,14 @@
         border-radius: 50%;
         display: grid;
         place-content: center;
+        color: v.$clr-white;
+        background-color: v.$clr-black;
+        border: 1px solid v.$clr-black;
 
         &:hover,
         &:focus {
-          color: v.$clr-white;
-          background-color: v.$clr-black;
+          color: v.$clr-black;
+          background-color: v.$clr-white;
           transition: all 0.3s ease;
         }
 

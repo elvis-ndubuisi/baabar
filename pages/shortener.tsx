@@ -7,8 +7,9 @@ import {
 } from "react-icons/ai";
 import { anim_shortenImg, anim_shortenLanding } from "../libraries/animations";
 import Link from "next/link";
+import type { NextPage } from "next";
 
-const Shortener = () => {
+const Shortener: NextPage = () => {
   let heading = useRef<HTMLHeadingElement>(null);
   let inputGroup = useRef<HTMLDivElement>(null);
   let urlRef = useRef<HTMLHeadingElement>(null);
