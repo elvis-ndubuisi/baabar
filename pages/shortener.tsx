@@ -25,18 +25,22 @@ const Shortener: NextPage = () => {
   const [error, setError] = useState("");
 
   const handleSubmit = async () => {
-    try {
-      const response = await fetch("https://dizzy-ray-woolens.cyclic.app/", {
+    if (fetching === false) {
+      setFetching(true);
+
+      await fetch("https://bit.cyclic.app/", {
         method: "POST",
         mode: "cors",
         body: JSON.stringify({ url: url }),
         headers: { "Content-type": "application/json; charset=UTF-8" },
-      });
-      const short = await response.json();
-      console.log(short.url);
-      setShortenedLink(short.url);
-    } catch (err) {
-      console.log(err);
+      })
+        .then((data) => {
+          setUrl("");
+          setFetching(false);
+        })
+        .catch((err) => {
+          setFetching(false);
+        });
     }
   };
 
@@ -105,7 +109,7 @@ const Shortener: NextPage = () => {
               <button onClick={handleSubmit}>
                 <>
                   {fetching ? (
-                    <AiOutlineLoading3Quarters size={24} />
+                    <AiOutlineLoading3Quarters size={24} color="white" />
                   ) : (
                     "Generate"
                   )}

@@ -32,14 +32,7 @@ export async function getStaticProps() {
   };
 }
 
-const Home: NextPage = ({
-  articles,
-}: [
-  {
-    slug: string;
-    frontmatter: { title: string; cover_img: string; tag: string };
-  }
-]) => {
+const Home: NextPage = ({ articles }: any) => {
   const trigger = useRef(null);
   let comp = useRef(null);
   let siblings = gsap.utils.selector(comp);
@@ -86,7 +79,7 @@ const Home: NextPage = ({
 
         <section className="wrapper articles">
           {articles &&
-            articles.map((article, idx) => (
+            articles.map((article: any, idx: number) => (
               <Article key={idx} article={article} />
             ))}
         </section>

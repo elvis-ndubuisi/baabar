@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Article = ({ article }) => {
+const Article = ({ article }: any) => {
   return (
     <Link href={`/articles/${article.slug}`}>
       <a className="article">
