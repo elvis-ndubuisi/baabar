@@ -26,7 +26,7 @@ const Shortener: NextPage = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("https//localhost:8000/", {
+      const response = await fetch("https://dizzy-ray-woolens.cyclic.app/", {
         method: "POST",
         mode: "cors",
         body: JSON.stringify({ url: url }),
